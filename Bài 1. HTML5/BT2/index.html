@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập 2] Tạo giao diện trang đăng ký học viên</title>
+    <style>
+        input{
+            accent-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>THÊM SINH VIÊN</h1>
+    <form action="">
+        <table>
+            <tr>
+                <td><label>Họ tên</label></td>
+                <td><input type="text" name="name" value="Nguyễn Văn An"></td>
+            </tr>
+            <tr>
+                <td><label>Ngày sinh</label></td>
+                <td><input type="date" name="bod" id="" value="2000-01-01"></td>
+            </tr>
+            <tr>
+                <td><label>Giới tính</label></td>
+                <td>
+                    <input type="radio" name="gender" value="male" checked> Nam
+                    <input type="radio" name="gender" value="female"> Nữ
+                </td>
+            </tr>
+            <tr>
+                <td><label>Quê quán</label></td>
+                <td>
+                    <select name="" id="">
+                        <option value="">An Giang</option>
+                        <option value="">Hà Nội</option>
+                        <option value="">Nghệ An</option>
+                        <option value="">Tp.Hồ Chí Minh</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Địa chỉ</label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><label>Sở thích</label></td>
+                <td>
+                    <input type="checkbox" name="sothich" color="red" id=""><label>Thể thao</label>
+                    <input type="checkbox" name="sothich" id="" checked><label>Du lịch</label>
+                    <input type="checkbox" name="sothich" id="" checked><label>Phim ảnh</label>
+                    <input type="checkbox" name="sothich" id=""><label>Ẩm thực</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Màu yêu thích</label></td>
+                <td><input type="color" name="" id="" value="#ff0000"></td>
+            </tr>
+            <tr>
+                <td><label>Email</label></td>
+                <td><input type="email" name="" id=""></td>
+            </tr>
+            <tr>
+                <td><label>Facebook</label></td>
+                <td><input type="url" name="" id=""></td>
+            </tr>
+            <tr>
+                <td><label>Lớp</label></td>
+                <td>
+                    <select name="" id="">
+                        <option value="">Lớp CNTT Khóa 8</option>
+                        <option value="">Lớp CNTT Khóa 9</option>
+                        <option value="">Lớp CNTT Khóa 10</option>
+                        <option value="" >Lớp CNTT Khóa 11</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Tên đăng nhập</label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><label>Mật khẩu</label></td>
+                <td><input type="password" name="" id=""></td>
+            </tr>
+            <tr>
+                <td><label>Ảnh thẻ</label></td>
+                <td>
+                    <button type="submit">Choose File</button>
+                    <label>No file chosen</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Mô tả</label></td>
+                <td><textarea name="" id="" cols="20" rows="2" >Nhập nội dung vào đây!</textarea></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Gửi</button></td>
+                <td><button type="reset">Nhập lại</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

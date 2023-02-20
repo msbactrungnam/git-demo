@@ -56,3 +56,8 @@
     float: left;
     font-size: 18px;
 }
+.imgfake{
+    width: 80%;
+    height: 400px;
+    background-color: orangered;
+}

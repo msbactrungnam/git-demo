@@ -1,0 +1,32 @@
+*{
+    max-width: 900px;
+    max-height: 400px;
+}
+header{
+    background-color: rgb(65, 148, 136);
+    color: white;
+    font-size: 30px;
+}
+header h1{
+    padding: 10px 5px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.main_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+.main_content div{
+    border: 1px solid #c0c0c0;
+    box-shadow: -2px 2px 8px 4px rgb(0 0 0 / 20%);
+}
+.main_content img{
+    width: 100%;
+}
+.main_content p{
+    margin: 10px 25px;
+    font-size: 25px;
+    font-weight: bold;
+}

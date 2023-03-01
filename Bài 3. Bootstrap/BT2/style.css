@@ -1,0 +1,51 @@
+a{
+    text-decoration: none;
+}
+:root{
+    --offcanvas-width: 270px;
+    --topNavbarHeight: 56px;
+}
+
+.sidebar-nav{
+    width: var(--offcanvas-width);
+}
+.sidebar-link{
+    display: flex;
+    align-items: center;
+}
+.sidebar-link .r-icon{
+    display: inline-flex;
+}
+.sidebar-link[aria-expanded="true"] .r-icon{
+    transform: rotate(90deg);
+}
+.tt{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+@media (min-width: 992px) {
+    body{
+        overflow: auto !important;
+    }
+    .offcanvas-backdrop::before {
+        display: none;
+    }
+    .menu{
+        margin-left: var(--offcanvas-width);
+    }
+    .content{
+        margin-left: var(--offcanvas-width);
+    }
+    .sidebar-nav{
+        transform: none;
+        visibility: visible !important;
+    }
+    .cr{
+        width: calc(100% - var(--offcanvas-width));
+        position: absolute;
+        bottom: 0;
+        margin-left: var(--offcanvas-width);
+    }
+}

@@ -23,6 +23,7 @@ a{
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    align-items: center
 }
 
 @media (min-width: 992px) {
@@ -45,7 +46,7 @@ a{
     .cr{
         width: calc(100% - var(--offcanvas-width));
         position: absolute;
-        bottom: 0;
+        bottom: auto;
         margin-left: var(--offcanvas-width);
     }
 }

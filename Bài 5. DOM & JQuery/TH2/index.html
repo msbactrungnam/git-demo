@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>[Thực hành 2] Thực hành xử lý các sự kiện chuột</title>
+    <style>
+        #scrollDemo {
+            height: 200px;
+            width: 200px;
+            overflow: auto;
+            background-color: #f0db4f
+        }
+
+        #scrollDemo p {
+            /* show the scrollbar */
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">Click Me!</button>
+    <button id="btn2">Click me with any mouse button: left, right, middle, ...</button>
+    <p id="message"></p>
+    <div id="scrollDemo">
+        <p>JS Scroll Event Demo</p>
+    </div>
+
+    <div id="control">
+        <button id="btnScrollLeft">Scroll Left</button>
+        <button id="btnScrollTop">Scroll Top</button>
+    </div>
+    <script>
+        let btn1 = document.querySelector('#btn1');
+
+        btn1.addEventListener('click', (event) => {
+            alert('clicked');
+        });
+        let btn2 = document.querySelector('#btn2');
+        btn2.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+        btn2.addEventListener('mouseup', (e) => {
+            let msg = document.querySelector('#message');
+            switch (e.button) {
+                case 0:
+                    msg.textContent = 'Left mouse button clicked.';
+                    break;
+                case 1:
+                    msg.textContent = 'Middle mouse button clicked.';
+                    break;
+                case 2:
+                    msg.textContent = 'Right mouse button clicked.';
+                    break;
+                default:
+                    msg.textContent = `Unknown mouse button code: ${event.button}`;
+            }
+        });
+        let control = document.querySelector('#control');
+        control.addEventListener('click', function (e) {
+            // Định vị phần tử scrollDemo
+            let div = document.getElementById('scrollDemo');
+            // Lấy ra biến target
+            let target = e.target;
+            // Xử lí sự kiện cuộn khi nút được nhấn
+            switch (target.id) {
+                case 'btnScrollLeft':
+                    div.scrollLeft += 20;
+                    break;
+
+                case 'btnScrollTop':
+                    div.scrollTop += 20;
+                    break;
+            }
+        });
+    </script>
+</body>
+
+</html>

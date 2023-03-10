@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>[Thực hành 3] Thực hành xử lý sự kiện bàn phím và xử lý form</title>
+
+</head>
+
+<body>
+    <input type="text" id="message">
+    <!-- ------------------------------------------------------------------ -->
+    <p>Move focus to the password field to see the effect:</p>
+    <form id="form">
+        <input type="text" placeholder="username">
+        <input type="password" placeholder="password">
+    </form>
+    <!-- ------------------------------------------------------------------ -->
+
+
+    <script>
+        let textBox = document.getElementById('message');
+        textBox.addEventListener('keydown', (event) => {
+            console.log(`key=${event.key},code=${event.code}`);
+        });
+        // ---------------------------------------------
+        const pwd = document.querySelector('input[type="password"]');
+
+        pwd.addEventListener('focus', (e) => {
+            e.target.style.backgroundColor = 'yellow';
+        });
+
+        pwd.addEventListener('blur', (e) => {
+            e.target.style.backgroundColor = '';
+        });
+        // ---------------------------------------------
+    </script>
+</body>
+
+</html>

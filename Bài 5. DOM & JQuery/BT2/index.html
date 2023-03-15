@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập 2] Xây dựng ứng dụng tương tác: Tính khoản vay ngân hàng</title>
+</head>
+
+<body>
+    <div>
+        <p style="font-weight: bold;">Nhập thông tin khoản vay:</p>
+        <table>
+            <tr>
+                <td>1) Số tiền:</td>
+                <td><input type="number" id="tien"></td>
+            </tr>
+            <tr>
+                <td>2) Lãi suất hàng năm (%):</td>
+                <td><input type="number" id="lai_xuat"></td>
+            </tr>
+            <tr>
+                <td>3) Thời gian trả (năm):</td>
+                <td><input type="number" id="thoi_gian_tra"></td>
+            </tr>
+        </table>
+        <button onclick="tinh()" type="submit">Tính</button>
+    </div>
+    <div>
+        <p style="font-weight: bold;">Thông tin thanh toán:</p>
+        <table>
+            <tr>
+                <td>4) Số tiền phải trả hàng tháng:</td>
+                <td><input type="number" id="tien_phai_tra"></td>
+            </tr>
+            <tr>
+                <td>5) Tổng số tiền phải trả:</td>
+                <td><input type="number" id="tong_tien_phai_tra"></td>
+
+            </tr>
+            <tr>
+                <td>6) Tổng số lãi phải trả:</td>
+                <td><input type="number" id="tong_lai_phai_tra"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    const tien = document.querySelector("#tien");
+    const thoi_gian_tra = document.querySelector("#thoi_gian_tra");
+    const lai_xuat = document.querySelector("#lai_xuat");
+    const tien_phai_tra = document.querySelector("#tien_phai_tra");
+    const tong_tien_phai_tra = document.querySelector("#tong_tien_phai_tra");
+    const tong_lai_phai_tra = document.querySelector("#tong_lai_phai_tra");
+
+    function tinh() {
+        let x = Math.pow(1 + lai_xuat.value, thoi_gian_tra.value);
+        let a = (tien.value * x * lai_xuat.value) / (x - 1);
+        tien_phai_tra.value = a.toFixed(1);
+        let b = a * thoi_gian_tra.value;
+        tong_tien_phai_tra.value = b.toFixed(1);
+        let c = b - tien.value;
+        tong_lai_phai_tra.value = c.toFixed(1);
+    }
+</script>
+
+</html>

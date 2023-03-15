@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập 1] Xây dựng ứng dụng tương tác: Tính chỉ số BMI</title>
+</head>
+
+<body>
+    <h1>ĐO CHỈ SỐ (BMI)</h1>
+    <form>
+        <label for="chieu_cao">Chiều cao</label><br>
+        <input type="number" id="chieu_cao" placeholder="Tính bằng m">
+        <br><br>
+        <label for="can_nang">Cân nặng</label><br>
+        <input type="number" id="can_nang" placeholder="Tính bằng kg">
+    </form>
+    <br>
+    <form>
+        <input type="radio" name="sex" id="nam">
+        <label for="nam">Nam</label>
+        <input type="radio" name="sex" id="nu">
+        <label for="nu">Nữ</label>
+    </form>
+    <br>
+    <div><button onclick="tinhBMI()" type="submit">Tính BMI</button></div>
+    <br>
+    <div>
+        <div>Kết quả</div>
+        <div class="kq">__</div>
+    </div>
+
+</body>
+<script>
+    const chieu_cao = document.querySelector("#chieu_cao");
+    const can_nang = document.querySelector("#can_nang");
+    const nam = document.querySelector("#nam");
+    const nu = document.querySelector("#nu");
+
+    function showKQ(a, b) {
+        const kq = document.querySelector(".kq");
+        kq.innerHTML = a.toFixed(1) + " | " + b;
+    }
+
+    function tinhBMI() {
+        let BMI = (can_nang.value) / (chieu_cao.value * chieu_cao.value);
+        if (nam.checked) {
+            switch (true) {
+                case BMI < 20.7:
+                    return showKQ(BMI, "Gầy");
+                    break;
+                case 20.7 < BMI < 26.4:
+                    return showKQ(BMI, "Bình thường");
+                    break;
+                case 26.4 < BMI < 27.8:
+                    return showKQ(BMI, "Thừa cân nhẹ");
+                    break;
+                case 27.8 < BMI < 31.1:
+                    return showKQ(BMI, "Trên lý tưởng");
+                    break;
+                default:
+                    return showKQ(BMI, "Béo phì");
+                    break;
+            }
+        }
+        if (nu.checked) {
+            switch (true) {
+                case BMI < 19.1:
+                    return showKQ(BMI, "Gầy");
+                    break;
+                case 19.1 < BMI < 25.8:
+                    return showKQ(BMI, "Bình thường");
+                    break;
+                case 25.8 < BMI < 27.3:
+                    return showKQ(BMI, "Thừa cân nhẹ");
+                    break;
+                case 27.3 < BMI < 32.3:
+                    return showKQ(BMI, "Trên lý tưởng");
+                    break;
+                default:
+                    return showKQ(BMI, "Béo phì");
+                    break;
+            }
+        }
+        can_nang.value = "";
+        chieu_cao.value = "";
+    }
+
+</script>
+
+</html>

@@ -1,6 +1,7 @@
 let list = [];
 let hinhanh = [];
 let loai = [];
+let sl = [];
 const listPKM = document.querySelector("#list_pkm");
 const imgPKM = document.querySelector("#anh_pkm");
 
@@ -11,19 +12,14 @@ function getData() {
     });
 }
 function render() {
-    let i = 1;
+    let i = 0;
+    let y = 0;
     const dulieu = list.map(function(pkm) {
         return `
-                <div id="chi_tiet"><p>${i++}. ${pkm.name}</p></div>
+                <div onclick="showThongTin(${i++})" id="chi_tiet"><p>${y++}. ${pkm.name}</p></div>
         `;
     });
     listPKM.innerHTML = dulieu.join("");
-    const thong_tin = document.querySelectorAll("#chi_tiet");
-    thong_tin.forEach(function (value, index){
-        value.addEventListener("click", function () {
-            showThongTin(index);
-        });
-    });
 }
 getData();
 
@@ -32,26 +28,27 @@ function showThongTin(index) {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${temp}`).then(function(res) {
         hinhanh = res.data.sprites.back_default;
         loai = res.data.types;
-    });
-    if (loai.length == 2){
+        sl = loai.length;
+        if (sl == 2){
+            return imgPKM.innerHTML = `
+                <div class = "ha">
+                    <img src="${hinhanh}">
+                </div>
+                <div>
+                <span class = "a">${loai[0].type.name}</span>
+                <span class = "b">${loai[1].type.name}</span>
+                </div>
+            `;
+        }
+        if (sl == 1){
         return imgPKM.innerHTML = `
-            <div class = "ha">
-                <img src="${hinhanh}">
-            </div>
-            <div>
-            <span class = "a">${loai[0].type.name}</span>
-            <span class = "b">${loai[1].type.name}</span>
-            </div>
-        `;
-    }
-    if (loai.length == 1){
-    return imgPKM.innerHTML = `
-            <div class = "ha">
-                <img src="${hinhanh}">
-            </div>
-            <div>
-            <span class = "a">${loai[0].type.name}</span>
-            </div>
-        `;
-    }
+                <div class = "ha">
+                    <img src="${hinhanh}">
+                </div>
+                <div>
+                <span class = "a">${loai[0].type.name}</span>
+                </div>
+            `;
+        }
+    }); 
 }

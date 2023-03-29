@@ -16,12 +16,12 @@ import './App.css';
 //     </div>
 //   );
 // }
+// export default App;
 import React from 'react'
 
-export default function App() {
+function App_demo() {
   return (
     <div>App</div>
   )
-}
-
-export default App;
+};
+export default App_demo;

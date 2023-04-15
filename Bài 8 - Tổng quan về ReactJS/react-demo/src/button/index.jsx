@@ -1,5 +1,17 @@
-import { AppBtn } from './style';
-export const AppButton = ()=>{
-    return <AppBtn>Test</AppBtn>
-}
-export default AppButton;
+import React from "react";
+export const useBoolean = (initialState = false) => {
+  const [state, setState] = React.useState(initialState);
+
+  const handleTrue = () => setState(true);
+  const handleFalse = () => setState(false);
+  const handleToggle = () => setState(!state);
+
+  return [
+    state,
+    {
+      setTrue: handleTrue,
+      setFalse: handleFalse,
+      setToggle: handleToggle,
+    },
+  ];
+};

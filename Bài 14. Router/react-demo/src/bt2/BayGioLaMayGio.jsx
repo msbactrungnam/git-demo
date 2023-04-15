@@ -12,7 +12,7 @@ function BayGioLaMayGio() {
 
   return (
     <div>
-      <h1>Thoi gian hien tai: {time.toLocaleTimeString()}</h1>
+      <p>Thoi gian hien tai: {time.toLocaleTimeString()}</p>
     </div>
   );
 }

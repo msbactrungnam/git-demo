@@ -1,16 +1,7 @@
-import React from 'react';
-import dao from './assets/images/dao.jpg';
-import './App.css';
-import {AppButton} from './button';
-import {ReactComponent as IconEdit2} from './logo.svg'
+import React from "react";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
 
-function App_demo() {
-  return (
-    <div>
-      <AppButton></AppButton>
-      <img src={dao}/>
-      <IconEdit2></IconEdit2>
-    </div>
-  )
+export default function App() {
+  return <RouterProvider router={router}></RouterProvider>;
 }
-export default App_demo;
